@@ -118,7 +118,7 @@
           >{{locale.cancelLabel}}
           </button>
           <button
-            class="applyBtn btn btn-sm btn-success"
+            class="applyBtn btn btn-sm"
             :disabled="in_selection"
             type="button"
             @click="clickedApply"

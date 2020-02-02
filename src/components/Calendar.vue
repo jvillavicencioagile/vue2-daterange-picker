@@ -237,9 +237,8 @@
         font-weight: bold;
     }
 
-    td.disabled {
+    td.disabled span {
         pointer-events: none;
-        background-color: #eee;
         border-radius: 0;
         opacity: 0.6;
     }

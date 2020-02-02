@@ -48,7 +48,7 @@ const DateUtil = {
   localeData: (options) => {
     let default_locale = {
       direction: 'ltr',
-      format: 'mm/dd/yyyy',
+      format: 'dd mmm, yyyy',
       separator: ' - ',
       applyLabel: 'Apply',
       cancelLabel: 'Cancel',
