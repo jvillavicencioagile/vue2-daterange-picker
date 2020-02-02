@@ -34,8 +34,6 @@
             <slot name="date-slot" v-for="(date, idx) in dateRow">
                 <td
                         :class="dayClass(date)"
-                        @click="$emit('dateClick', date)"
-                        @mouseover="$emit('hoverDate', date)"
                         :key="idx"
                 >
                     <span
