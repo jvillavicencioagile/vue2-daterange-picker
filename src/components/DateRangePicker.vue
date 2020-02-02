@@ -632,11 +632,16 @@
   .reportrange-text {
     background: #fff;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 12px 16px;
     border: 1px solid #ccc;
     width: 100%;
     border-radius: 0;
+    line-height: 12px;
     font-weight: 500;
+    i {
+      font-size: 13px;
+      margin-left: 10px;
+    }
   }
 
   .daterangepicker {

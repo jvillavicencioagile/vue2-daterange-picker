@@ -287,7 +287,6 @@
   display: none;
   line-height: 12px;
   vertical-align: middle;
-  padding-right: 180px;
 }
 
 .daterangepicker .drp-selected {
@@ -335,7 +334,7 @@
 .daterangepicker .ranges .title {
   margin-bottom: 50px;
   display: block;
-  padding: 0px 25px;
+  padding: 0px 15px;
   font-size: 17px;
 }
 .daterangepicker .ranges ul {
@@ -347,8 +346,9 @@
 
 .daterangepicker .ranges li {
   font-size: 15px;
-  padding: 8px 35px;
+  padding: 8px 25px;
   cursor: pointer;
+  color: #484848;
 }
 
 .daterangepicker .ranges li:hover {
