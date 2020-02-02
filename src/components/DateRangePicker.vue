@@ -34,61 +34,81 @@
             @param {object} ranges - object with ranges
           -->
           <div class="calendars-container" v-if="showCalendars">
-            <div class="drp-calendar col left" :class="{single: singleDatePicker}">
-              <div class="daterangepicker_input d-none d-sm-block" v-if="false">
-                <input class="input-mini form-control" type="text" name="daterangepicker_start"
-                       :value="startText"/>
-                <i class="fa fa-calendar glyphicon glyphicon-calendar"></i>
-              </div>
-              <div class="calendar-table">
-                <calendar :monthDate="monthDate"
-                          :locale-data="locale"
-                          :start="start" :end="end"
-                          :minDate="min" :maxDate="max"
-                          :show-dropdowns="showDropdowns"
+            <div class="col">
+              <div class="calendars-container">
+                <div class="drp-calendar col left" :class="{single: singleDatePicker}">
+                  <div class="daterangepicker_input d-none d-sm-block" v-if="false">
+                    <input class="input-mini form-control" type="text" name="daterangepicker_start"
+                          :value="startText"/>
+                    <i class="fa fa-calendar glyphicon glyphicon-calendar"></i>
+                  </div>
+                  <div class="calendar-table">
+                    <calendar :monthDate="monthDate"
+                              :locale-data="locale"
+                              :start="start" :end="end"
+                              :minDate="min" :maxDate="max"
+                              :show-dropdowns="showDropdowns"
 
-                          @change-month="changeLeftMonth"
-                          :date-format="dateFormatFn"
+                              @change-month="changeLeftMonth"
+                              :date-format="dateFormatFn"
 
-                          @dateClick="dateClick" @hoverDate="hoverDate"
-                          :showWeekNumbers="showWeekNumbers"
-                ></calendar>
-              </div>
-              <calendar-time v-if="timePicker"
-                             @update="onUpdateStartTime"
-                             :miniute-increment="timePickerIncrement"
-                             :hour24="timePicker24Hour"
-                             :second-picker="timePickerSeconds"
-                             :current-time="start"
-              />
-            </div>
-            <div class="drp-calendar col right" v-if="!singleDatePicker">
-              <div class="daterangepicker_input" v-if="false">
-                <input class="input-mini form-control" type="text" name="daterangepicker_end"
-                       :value="endText"/>
-                <i class="fa fa-calendar glyphicon glyphicon-calendar"></i>
-              </div>
-              <div class="calendar-table">
-                <calendar :monthDate="nextMonthDate"
-                          :locale-data="locale"
-                          :start="start" :end="end"
-                          :minDate="min" :maxDate="max"
-                          :show-dropdowns="showDropdowns"
+                              @dateClick="dateClick" @hoverDate="hoverDate"
+                              :showWeekNumbers="showWeekNumbers"
+                    ></calendar>
+                  </div>
+                  <calendar-time v-if="timePicker"
+                                @update="onUpdateStartTime"
+                                :miniute-increment="timePickerIncrement"
+                                :hour24="timePicker24Hour"
+                                :second-picker="timePickerSeconds"
+                                :current-time="start"
+                    />
+                  </div>
+                  <div class="drp-calendar col right" v-if="!singleDatePicker">
+                    <div class="daterangepicker_input" v-if="false">
+                      <input class="input-mini form-control" type="text" name="daterangepicker_end"
+                            :value="endText"/>
+                      <i class="fa fa-calendar glyphicon glyphicon-calendar"></i>
+                    </div>
+                    <div class="calendar-table">
+                      <calendar :monthDate="nextMonthDate"
+                                :locale-data="locale"
+                                :start="start" :end="end"
+                                :minDate="min" :maxDate="max"
+                                :show-dropdowns="showDropdowns"
 
-                          @change-month="changeRightMonth"
-                          :date-format="dateFormatFn"
+                                @change-month="changeRightMonth"
+                                :date-format="dateFormatFn"
 
-                          @dateClick="dateClick" @hoverDate="hoverDate"
-                          :showWeekNumbers="showWeekNumbers"
-                ></calendar>
+                                @dateClick="dateClick" @hoverDate="hoverDate"
+                                :showWeekNumbers="showWeekNumbers"
+                      ></calendar>
+                    </div>
+                    <calendar-time v-if="timePicker"
+                                  @update="onUpdateEndTime"
+                                  :miniute-increment="timePickerIncrement"
+                                  :hour24="timePicker24Hour"
+                                  :second-picker="timePickerSeconds"
+                                  :current-time="end"
+                    />
+                </div>
               </div>
-              <calendar-time v-if="timePicker"
-                             @update="onUpdateEndTime"
-                             :miniute-increment="timePickerIncrement"
-                             :hour24="timePicker24Hour"
-                             :second-picker="timePickerSeconds"
-                             :current-time="end"
-              />
+              <div class="drp-buttons" v-if="!autoApply">
+                <span class="drp-selected" v-if="showCalendars">{{rangeText}}</span>
+                <button
+                  class="cancelBtn btn btn-sm btn-default"
+                  type="button"
+                  @click="clickAway"
+                >{{locale.cancelLabel}}
+                </button>
+                <button
+                  class="applyBtn btn btn-sm"
+                  :disabled="in_selection"
+                  type="button"
+                  @click="clickedApply"
+                >{{locale.applyLabel}}
+                </button>
+              </div>
             </div>
             <slot
               name="ranges"
@@ -109,22 +129,7 @@
           </div>
         </div>
 
-        <div class="drp-buttons" v-if="!autoApply">
-          <span class="drp-selected" v-if="showCalendars">{{rangeText}}</span>
-          <button
-            class="cancelBtn btn btn-sm btn-default"
-            type="button"
-            @click="clickAway"
-          >{{locale.cancelLabel}}
-          </button>
-          <button
-            class="applyBtn btn btn-sm"
-            :disabled="in_selection"
-            type="button"
-            @click="clickedApply"
-          >{{locale.applyLabel}}
-          </button>
-        </div>
+        
 
       </div>
     </transition>
