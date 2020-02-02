@@ -97,7 +97,6 @@
               :ranges="ranges"
               v-if="ranges !== false"
             >
-              <strong class="title">Date presets</strong>
               <calendar-ranges class="col-12 col-md-auto"
                               @clickRange="clickRange"
                               @showCustomRange="showCustomRangeCalendars=true"
@@ -631,6 +630,8 @@
     padding: 5px 10px;
     border: 1px solid #ccc;
     width: 100%;
+    border-radius: 0;
+    font-weight: 500;
   }
 
   .daterangepicker {

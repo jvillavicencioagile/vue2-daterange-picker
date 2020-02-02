@@ -137,12 +137,19 @@
   width: 32px;
   height: 24px;
   line-height: 24px;
-  font-size: 12px;
+  font-size: 17px;
   border-radius: 4px;
   border: 1px solid transparent;
   cursor: pointer;
 }
-
+.daterangepicker .calendar-table thead th {
+  font-size: 17px;
+}
+.daterangepicker .calendar-table tbody th {
+  font-size: 15px;
+  font-weight: normal;
+  color: #484848;
+}
 .daterangepicker .calendar-table {
   border: 1px solid #fff;
   border-radius: 4px;
