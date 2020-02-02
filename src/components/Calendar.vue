@@ -38,7 +38,10 @@
                         @mouseover="$emit('hoverDate', date)"
                         :key="idx"
                 >
-                    {{date.getDate()}}
+                    <span
+                      @click="$emit('dateClick', date)"
+                      @mouseover="$emit('hoverDate', date)"
+                    >{{date.getDate()}}</span>
                 </td>
             </slot>
         </tr>
