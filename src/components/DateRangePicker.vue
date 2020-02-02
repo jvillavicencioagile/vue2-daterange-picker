@@ -33,23 +33,6 @@
             @param {Date} endDate - current endDate
             @param {object} ranges - object with ranges
           -->
-          <slot
-            name="ranges"
-            :startDate="start"
-            :endDate="end"
-            :ranges="ranges"
-            v-if="ranges !== false"
-          >
-            <calendar-ranges class="col-12 col-md-auto"
-                             @clickRange="clickRange"
-                             @showCustomRange="showCustomRangeCalendars=true"
-                             :always-show-calendars="alwaysShowCalendars"
-                             :locale-data="locale"
-                             :ranges="ranges"
-                             :selected="{ startDate: start, endDate: end }"
-            ></calendar-ranges>
-          </slot>
-
           <div class="calendars-container" v-if="showCalendars">
             <div class="drp-calendar col left" :class="{single: singleDatePicker}">
               <div class="daterangepicker_input d-none d-sm-block" v-if="false">
@@ -79,7 +62,6 @@
                              :current-time="start"
               />
             </div>
-
             <div class="drp-calendar col right" v-if="!singleDatePicker">
               <div class="daterangepicker_input" v-if="false">
                 <input class="input-mini form-control" type="text" name="daterangepicker_end"
@@ -108,6 +90,22 @@
                              :current-time="end"
               />
             </div>
+            <slot
+              name="ranges"
+              :startDate="start"
+              :endDate="end"
+              :ranges="ranges"
+              v-if="ranges !== false"
+            >
+              <calendar-ranges class="col-12 col-md-auto"
+                              @clickRange="clickRange"
+                              @showCustomRange="showCustomRangeCalendars=true"
+                              :always-show-calendars="alwaysShowCalendars"
+                              :locale-data="locale"
+                              :ranges="ranges"
+                              :selected="{ startDate: start, endDate: end }"
+              ></calendar-ranges>
+            </slot>
           </div>
         </div>
 
@@ -720,7 +718,7 @@
   .daterangepicker {
     &.opensleft {
       top: 35px;
-      right: 10px;
+      right: 0px;
       left: auto;
     }
 
