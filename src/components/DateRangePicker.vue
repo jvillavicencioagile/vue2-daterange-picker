@@ -97,6 +97,7 @@
               :ranges="ranges"
               v-if="ranges !== false"
             >
+              <strong class="title">Date presets</strong>
               <calendar-ranges class="col-12 col-md-auto"
                               @clickRange="clickRange"
                               @showCustomRange="showCustomRangeCalendars=true"
